@@ -144,6 +144,10 @@ function chadohl_portfolio_scripts() {
 	wp_style_add_data( 'chadohl-portfolio-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'chadohl-portfolio-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'chadohl-portfolio-jquery', 'https://code.jquery.com/jquery-latest.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'chadohl-portfolio-aos', 'https://unpkg.com/aos@next/dist/aos.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'chadohl-portfolio-fslightbox', get_template_directory_uri() . '/js/fslightbox.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'chadohl-portfolio-scripts', get_template_directory_uri() . '/js/scripts.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -178,3 +182,43 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+
+function chadohl_portfolio_post_type_portfolio() {
+	$supports = array(
+	'title', // post title
+	// 'editor', // post content
+	// 'author', // post author
+	// 'thumbnail', // featured images
+	// 'excerpt', // post excerpt
+	'custom-fields', // custom fields
+	// 'comments', // post comments
+	'revisions', // post revisions
+	'post-formats', // post formats
+	);
+	$labels = array(
+	'name' => _x('Portfolio', 'plural'),
+	'singular_name' => _x('Portfolio Item', 'singular'),
+	'menu_name' => _x('Portfolio', 'admin menu'),
+	'name_admin_bar' => _x('Portfolio', 'admin bar'),
+	'add_new' => _x('Add Portfolio Item', 'add new'),
+	'add_new_item' => __('Add New Portfolio Item'),
+	'new_item' => __('New Portfolio Item'),
+	'edit_item' => __('Edit Portfolio'),
+	'view_item' => __('View Portfolio Item'),
+	'all_items' => __('All Portfolio Items'),
+	'search_items' => __('Search Portfolio Items'),
+	'not_found' => __('No Portfolio found.'),
+	);
+	$args = array(
+	'supports' => $supports,
+	'labels' => $labels,
+	'public' => true,
+	'query_var' => true,
+	'rewrite' => array('slug' => 'portfolio'),
+	'has_archive' => true,
+	'hierarchical' => false,
+	);
+	register_post_type('portfolio', $args);
+}
+add_action('init', 'chadohl_portfolio_post_type_portfolio');

@@ -11,24 +11,26 @@
 
 ?>
 
-	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'chadohl-portfolio' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'chadohl-portfolio' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'chadohl-portfolio' ), 'chadohl-portfolio', '<a href="https://github.com/chadlol">Chad Ohl</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+
+	<footer class="text-center">
+        <a href="#" class="">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+
+        <div class="social-links">
+            <a href="mailto:chadohl@gmail.com"><i class="fa fa-envelope"></i></a>
+            <a href="https://github.com/chadlol"><i class="fa fa-github"></i></a>
+            <a href="https://gitlab.com/chadlol"><i class="fa fa-gitlab"></i></a>
+            <a href="https://dribbble.com/chadL0L"><i class="fa fa-dribbble"></i></a>
+            <a href="https://www.instagram.com/ohl_lines/"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.youtube.com/channel/UCwlKI1VeP5or1aYe8aOqxTg"><i class="fa fa-youtube"></i></a>
+        </div>
+
+        <h6>© 2021 Chad Ohl</h6>
+        </a>
+    </footer>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
-
 </body>
 </html>

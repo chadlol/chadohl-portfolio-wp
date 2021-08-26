@@ -1,0 +1,66 @@
+#about {
+
+    .chad-ohl {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding-top: 3.125rem;
+
+        h4 {
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            padding: 1rem 0;
+        }
+
+        .copy,
+        .copy-full {
+            width: 100%;
+        }
+
+        .portrait {
+            display:flex;
+            justify-content: center;
+
+            img {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+
+        ul {
+            li {
+                font-size: 0.75rem;
+                margin-left: 2em;
+                // text-indent: -1em;
+                // list-style-type: none;
+            }
+        
+            .b {
+                font-size: initial;
+                font-weight: bold;
+                margin-left: 1rem;
+            }
+        }
+
+
+        @media screen and (min-width: 1200px) {
+            flex-direction: row;
+
+            h2 {
+                margin-top: 0;
+            }
+
+            .copy {
+                width: 50%;
+                padding-right: 3rem;
+            }
+    
+            .portrait {
+                display: inline-block;
+                 width: 50%;
+            }
+        }
+    }
+}
